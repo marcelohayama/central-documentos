@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Central de acesso às fichas de notificação compulsória.">
+  <title>Central de Documentos | Notificação Compulsória</title>
+  <style>
+    :root {
+      --blue: #174a7e;
+      --blue-dark: #10385f;
+      --bg: #f3f6fa;
+      --text: #1f2937;
+      --muted: #64748b;
+      --border: #dce4ee;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .container { width: min(960px, calc(100% - 32px)); margin: 36px auto; }
+    header {
+      background: linear-gradient(135deg, var(--blue), #2677a8);
+      color: white;
+      padding: 32px;
+      border-radius: 18px;
+      box-shadow: 0 10px 28px rgba(23, 74, 126, .16);
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .75rem;
+      font-weight: 700;
+      opacity: .85;
+    }
+    h1 { margin: 10px 0 8px; font-size: clamp(1.7rem, 4vw, 2.35rem); }
+    header p { margin: 0; line-height: 1.5; opacity: .94; }
+    .toolbar { margin: 24px 0 16px; }
+    .search {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font: inherit;
+      background: white;
+      outline-color: var(--blue);
+    }
+    .section-title { font-size: 1.05rem; margin: 22px 0 12px; }
+    .documents { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .card {
+      display: flex;
+      flex-direction: column;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 20px;
+      min-height: 210px;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, .04);
+    }
+    .icon {
+      display: grid; place-items: center;
+      width: 44px; height: 44px; border-radius: 12px;
+      background: #e8f1fb; color: var(--blue); font-size: 1.25rem;
+      margin-bottom: 14px;
+    }
+    .card h2 { font-size: 1.05rem; line-height: 1.4; margin: 0 0 8px; }
+    .card p { color: var(--muted); font-size: .9rem; line-height: 1.5; margin: 0 0 18px; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      margin-top: auto; text-decoration: none; text-align: center;
+      padding: 12px 14px; border-radius: 10px;
+      background: var(--blue); color: white; font-weight: 650;
+      transition: background .15s ease;
+    }
+    .button:hover, .button:focus { background: var(--blue-dark); }
+    .empty { display: none; color: var(--muted); padding: 18px 0; }
+    footer { color: var(--muted); font-size: .82rem; text-align: center; margin: 24px 0 8px; line-height: 1.5; }
+    @media (max-width: 520px) {
+      .container { width: min(100% - 20px, 960px); margin: 12px auto; }
+      header { padding: 24px 20px; border-radius: 14px; }
+      .card { min-height: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <div class="eyebrow">Acesso rápido</div>
+      <h1>Central de Documentos</h1>
+      <p>Fichas de Notificação Compulsória — consulte e abra os documentos oficiais em um só lugar.</p>
+    </header>
+
+    <div class="toolbar">
+      <input class="search" id="search" type="search" placeholder="Buscar por doença ou código..." aria-label="Buscar documentos">
+    </div>
+
+    <h2 class="section-title">Documentos disponíveis</h2>
+    <section class="documents" id="documents">
+      <article class="card" data-search="esporotricose humana b42 ficha preenchível">
+        <div class="icon" aria-hidden="true">PDF</div>
+        <h2>Esporotricose Humana – B42</h2>
+        <p>Ficha de notificação preenchível.</p>
+        <a class="button" href="https://drive.prefeitura.sp.gov.br/cidade/secretarias/upload/saude/ficha_esporotricose_preenchivel_2023.pdf" target="_blank" rel="noopener noreferrer">Abrir documento ↗</a>
+      </article>
+
+      <article class="card" data-search="botulismo ficha notificação">
+        <div class="icon" aria-hidden="true">PDF</div>
+        <h2>Botulismo</h2>
+        <p>Ficha de notificação do agravo.</p>
+        <a class="button" href="https://portalsinan.saude.gov.br/images/documentos/Agravos/Botulismo/Botulismo_v5.pdf" target="_blank" rel="noopener noreferrer">Abrir documento ↗</a>
+      </article>
+
+      <article class="card" data-search="coqueluche ficha notificação">
+        <div class="icon" aria-hidden="true">PDF</div>
+        <h2>Coqueluche</h2>
+        <p>Ficha de notificação do agravo.</p>
+        <a class="button" href="https://portalsinan.saude.gov.br/images/documentos/Agravos/Coqueluche/Coqueluche_v5.pdf" target="_blank" rel="noopener noreferrer">Abrir documento ↗</a>
+      </article>
+    </section>
+    <p class="empty" id="empty">Nenhum documento encontrado para essa busca.</p>
+
+    <footer>
+      Central de acesso a links externos. Os documentos permanecem hospedados nos sites de origem.
+    </footer>
+  </main>
+  <script>
+    const search = document.getElementById('search');
+    const cards = [...document.querySelectorAll('.card')];
+    const empty = document.getElementById('empty');
+    search.addEventListener('input', () => {
+      const term = search.value.trim().toLocaleLowerCase('pt-BR');
+      let visible = 0;
+      cards.forEach(card => {
+        const match = card.dataset.search.toLocaleLowerCase('pt-BR').includes(term);
+        card.hidden = !match;
+        if (match) visible++;
+      });
+      empty.style.display = visible ? 'none' : 'block';
+    });
+  </script>
+</body>
+</html>
