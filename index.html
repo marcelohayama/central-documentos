@@ -121,33 +121,32 @@
         <a class="button" href="https://portalsinan.saude.gov.br/images/documentos/Agravos/Coqueluche/Coqueluche_v5.pdf" target="_blank" rel="noopener noreferrer">Abrir documento ↗</a>
       </article>
 
-      <article class="card" data-search="aids adulto">
+      <article class="card" data-search="acidentes por animais peçonhentos ficha notificação">
+        <div class="icon" aria-hidden="true">PDF</div>
+        <h2>Acidentes por Animais Peçonhentos</h2>
+        <p>Ficha de notificação do agravo.</p>
+        <a class="button" href="https://portalsinan.saude.gov.br/images/documentos/Agravos/AAP/Animais_Peconhentos_v5.pdf" target="_blank" rel="noopener noreferrer">Abrir documento ↗</a>
+      </article>
+
+      <article class="card" data-search="aids adulto ficha notificação">
         <div class="icon" aria-hidden="true">PDF</div>
         <h2>AIDS Adulto</h2>
         <p>Ficha de notificação do agravo.</p>
         <a class="button" href="https://portalsinan.saude.gov.br/images/documentos/Agravos/AidsAdulto/Aids_adulto_v5.pdf" target="_blank" rel="noopener noreferrer">Abrir documento ↗</a>
       </article>
-    </section>
-    <p class="empty" id="empty">Nenhum documento encontrado para essa busca.</p>
 
-    <footer>
-      Central de acesso a links externos. Os documentos permanecem hospedados nos sites de origem.
-    </footer>
-  </main>
-  <script>
-    const search = document.getElementById('search');
-    const cards = [...document.querySelectorAll('.card')];
-    const empty = document.getElementById('empty');
-    search.addEventListener('input', () => {
-      const term = search.value.trim().toLocaleLowerCase('pt-BR');
-      let visible = 0;
-      cards.forEach(card => {
-        const match = card.dataset.search.toLocaleLowerCase('pt-BR').includes(term);
-        card.hidden = !match;
-        if (match) visible++;
-      });
-      empty.style.display = visible ? 'none' : 'block';
-    });
-  </script>
-</body>
-</html>
+      <article class="card" data-search="aids criança ficha notificação">
+        <div class="icon" aria-hidden="true">PDF</div>
+        <h2>AIDS Criança</h2>
+        <p>Ficha de notificação do agravo.</p>
+        <a class="button" href="https://portalsinan.saude.gov.br/images/documentos/Agravos/AidsCrianca/Aids_crianca_v5.pdf" target="_blank" rel="noopener noreferrer">Abrir documento ↗</a>
+      </article>
+
+      <article class="card" data-search="antirrábico humano ficha preenchível">
+        <div class="icon" aria-hidden="true">PDF</div>
+        <h2>Antirrábico Humano</h2>
+        <p>Ficha de notificação preenchível.</p>
+        <a class="button" href="https://drive.prefeitura.sp.gov.br/cidade/secretarias/upload/saude/ficha_antirrabica_preenchivel_27112020.pdf" target="_blank" rel="noopener noreferrer">Abrir documento ↗</a>
+      </article>
+
+      <article class="card" data-search="doença de ch
